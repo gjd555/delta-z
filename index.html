@@ -1,35 +1,164 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Doações</title>
-    <style>
-        body {
-            background: #111;
-            color: #eee;
-            font-family: Arial;
-            text-align: center;
-            padding-top: 50px;
-        }
-        a {
-            display: block;
-            margin: 15px;
-            padding: 10px;
-            background: #333;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-        }
-        a:hover {
-            background: #555;
-        }
-    </style>
-</head>
-<body>
-    <h1>Apoie meu projeto</h1>
-    <p>Se quiser ajudar no desenvolvimento 👇</p>
+<meta charset="UTF-8">
+<title>Doações</title>
 
-    <a href="https://pix.meuemail@email.com">PIX</a>
-    <a href="https://paypal.me/seulink">PayPal</a>
-    <a href="https://buymeacoffee.com/seulink">Buy Me a Coffee</a>
+<style>
+
+.sidebar {
+    position: fixed;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    z-index: 999;
+}
+
+.btn {
+    display: block;
+    width: 45px;
+    height: 45px;
+    margin: 5px 0;
+    line-height: 45px;
+    text-align: center;
+    border-radius: 8px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+    background: #333;
+    transition: 0.2s;
+}
+
+.btn:hover {
+    transform: scale(1.1);
+}
+
+/* cores */
+.youtube { background: #cc0000; }
+.tiktok  { background: #111; }
+.kwai    { background: #ff6600; }
+.extra   { background: #444; }
+
+body {
+    background: #0d0d0d;
+    color: #eaeaea;
+    font-family: Arial;
+    text-align: center;
+    padding-top: 40px;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.box {
+    background: #1a1a1a;
+    margin: 15px;
+    padding: 20px;
+    width: 280px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #000;
+}
+
+input {
+    width: 90%;
+    padding: 10px;
+    margin-top: 10px;
+    background: #111;
+    color: #00ff88;
+    border: 1px solid #333;
+    text-align: center;
+}
+
+button {
+    margin: 5px;
+    padding: 7px 12px;
+    background: #333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #555;
+}
+
+.msg {
+    color: #00ff88;
+    font-size: 12px;
+}
+</style>
+</head>
+
+<body>
+<h1> a saga dos guerrreiros Z </h1>
+<h1>💖 1 filho para criar, e um monte de histórias</h1>
+<h1>💝 Se quiser me ajudar pode: doar<br> Qualquer quantidade que sentir no coração</h1>
+
+
+<div class="sidebar">
+    <h1>Youtube</h1> <a href="https://www.youtube.com/@JAFI-Z" target="_blank" class="btn youtube">▶</a>
+    <h1>Tiktok</h1> <a href="https://www.tiktok.com/@gabrielpimgomes" target="_blank" class="btn tiktok">♫</a>
+
+</div>
+
+
+
+<div class="container">
+
+    <!-- Caixa -->
+    <div class="box">
+        <h3>Caixa economica federal</h3>
+        <input id="pix1" value="27988940525" readonly>
+        <br>
+        <button onclick="copiar('pix1','msg1')">📋 Copiar</button>
+        <button onclick="abrirBanco()">🏦 Abrir App</button>
+        <div id="msg1" class="msg"></div>
+    </div>
+
+    <!-- Mercado Pago -->
+    <div class="box">
+        <h3>Mercado Pago</h3>
+        <input id="pix2" value="27988334904" readonly>
+        <br>
+        <button onclick="copiar('pix2','msg2')">📋 Copiar</button>
+        <button onclick="abrirBanco()">🏦 Abrir App</button>
+        <div id="msg2" class="msg"></div>
+    </div>
+
+    <!-- PicPay -->
+    <div class="box">
+        <h3>PicPay</h3>
+        <input id="pix3" value="gabrielpimgomes@gmail.com" readonly>
+        <br>
+        <button onclick="copiar('pix3','msg3')">📋 Copiar</button>
+        <button onclick="abrirBanco()">🏦 Abrir App</button>
+        <div id="msg3" class="msg"></div>
+    </div>
+
+
+</div>
+
+<script>
+function copiar(idCampo, idMsg) {
+    const campo = document.getElementById(idCampo);
+    navigator.clipboard.writeText(campo.value);
+
+    const msg = document.getElementById(idMsg);
+    msg.innerText = "Copiado!";
+    setTimeout(() => msg.innerText = "", 2000);
+}
+
+function abrirBanco() {
+    window.location.href = "pix://";
+}
+</script>
+
 </body>
 </html>
